@@ -5,14 +5,14 @@ import { ImageGenerationDto } from './dtos/ImageGeneration.dto'
 
 @Controller('gpt')
 export class GptController {
-  constructor(private readonly gptService: GptService) {}
+  constructor(private readonly gptService: GptService) { }
   @Post('/orthography')
   orthographyCheck(@Body() orthographyDto: OrthographyDto) {
     return this.gptService.orthographyCheck(orthographyDto)
   }
 
   @Post('/images')
-  async imageCaptioning(@Body() imageGenerationDto: ImageGenerationDto) {
+  async imageGeneration(@Body() imageGenerationDto: ImageGenerationDto) {
     return this.gptService.imageGeneration(imageGenerationDto)
   }
 }
